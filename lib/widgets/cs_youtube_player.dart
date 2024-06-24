@@ -49,15 +49,18 @@ class _CsYoutubePlayerState extends State<CsYoutubePlayer> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return YoutubePlayer(
-      controller: controller,
-      showVideoProgressIndicator: true,
-      progressIndicatorColor: theme.primaryColor,
-      progressColors: ProgressBarColors(
-        playedColor: theme.primaryColor,
-        handleColor: theme.colorScheme.secondary,
-        backgroundColor: theme.scaffoldBackgroundColor,
-        bufferedColor: theme.scaffoldBackgroundColor,
+    return Semantics(
+      label: 'Vídeo do Youtube. Toque duas vezes para reproduzir',
+      child: YoutubePlayer(
+        controller: controller,
+        showVideoProgressIndicator: true,
+        progressIndicatorColor: theme.primaryColor,
+        progressColors: ProgressBarColors(
+          playedColor: theme.primaryColor,
+          handleColor: theme.colorScheme.secondary,
+          backgroundColor: theme.scaffoldBackgroundColor,
+          bufferedColor: theme.scaffoldBackgroundColor,
+        ),
       ),
     );
   }

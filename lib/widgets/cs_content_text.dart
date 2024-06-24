@@ -14,12 +14,15 @@ class CsContentText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Text(
-      text,
-      textAlign: textAlign,
-      style: TextStyle(
-        fontSize: 16,
-        color: theme.colorScheme.onSurface,
+    return Semantics(
+      label: 'Texto: $text',
+      child: Text(
+        text,
+        textAlign: textAlign,
+        style: TextStyle(
+          fontSize: 16,
+          color: theme.colorScheme.onSurface,
+        ),
       ),
     );
   }

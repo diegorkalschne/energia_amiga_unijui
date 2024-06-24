@@ -41,76 +41,79 @@ class CsElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return SizedBox(
-      height: height,
-      width: width,
-      child: ElevatedButton.icon(
-        onPressed: onPressed,
-        icon: const SizedBox(),
-        clipBehavior: Clip.none,
-        label: AutoSizeText(
-          label.toUpperCase(),
-          style: secondary
-              ? TextStyle(
+    return Semantics(
+      label: 'Botão $label',
+      child: SizedBox(
+        height: height,
+        width: width,
+        child: ElevatedButton.icon(
+          onPressed: onPressed,
+          icon: const SizedBox(),
+          clipBehavior: Clip.none,
+          label: AutoSizeText(
+            label.toUpperCase(),
+            style: secondary
+                ? TextStyle(
+                    fontWeight: FontWeight.w800,
+                    color: backgroundColor ?? theme.primaryColor,
+                    fontSize: 16,
+                  )
+                : TextStyle(
+                    fontWeight: FontWeight.w800,
+                    color: colorText ?? Colors.white,
+                    fontSize: 16,
+                  ),
+            maxLines: 1,
+          ),
+          style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.resolveWith((_) {
+              if (secondary) {
+                return theme.colorScheme.surface;
+              }
+
+              if (backgroundColor != null) {
+                return backgroundColor;
+              }
+
+              return theme.primaryColor;
+            }),
+            overlayColor: WidgetStateProperty.resolveWith((_) {
+              if (secondary) {
+                return theme.colorScheme.primary.withOpacity(0.2);
+              }
+
+              if (backgroundColor != null) {
+                return backgroundColor;
+              }
+
+              return theme.splashColor;
+            }),
+            textStyle: WidgetStateProperty.resolveWith((_) {
+              if (secondary) {
+                return TextStyle(
                   fontWeight: FontWeight.w800,
                   color: backgroundColor ?? theme.primaryColor,
                   fontSize: 16,
-                )
-              : TextStyle(
-                  fontWeight: FontWeight.w800,
-                  color: colorText ?? Colors.white,
-                  fontSize: 16,
-                ),
-          maxLines: 1,
-        ),
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.resolveWith((_) {
-            if (secondary) {
-              return theme.colorScheme.surface;
-            }
+                );
+              }
 
-            if (backgroundColor != null) {
-              return backgroundColor;
-            }
-
-            return theme.primaryColor;
-          }),
-          overlayColor: WidgetStateProperty.resolveWith((_) {
-            if (secondary) {
-              return theme.colorScheme.primary.withOpacity(0.2);
-            }
-
-            if (backgroundColor != null) {
-              return backgroundColor;
-            }
-
-            return theme.splashColor;
-          }),
-          textStyle: WidgetStateProperty.resolveWith((_) {
-            if (secondary) {
               return TextStyle(
                 fontWeight: FontWeight.w800,
-                color: backgroundColor ?? theme.primaryColor,
+                color: colorText ?? Colors.white,
                 fontSize: 16,
               );
-            }
-
-            return TextStyle(
-              fontWeight: FontWeight.w800,
-              color: colorText ?? Colors.white,
-              fontSize: 16,
-            );
-          }),
-          elevation: WidgetStateProperty.all(onPressed == null ? 0 : elevation),
-          shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-              side: secondary
-                  ? BorderSide(
-                      color: backgroundColor ?? theme.primaryColor,
-                      width: 2,
-                    )
-                  : BorderSide.none,
+            }),
+            elevation: WidgetStateProperty.all(onPressed == null ? 0 : elevation),
+            shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                side: secondary
+                    ? BorderSide(
+                        color: backgroundColor ?? theme.primaryColor,
+                        width: 2,
+                      )
+                    : BorderSide.none,
+              ),
             ),
           ),
         ),

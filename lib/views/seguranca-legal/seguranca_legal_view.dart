@@ -77,11 +77,14 @@ class _SegurancaLegalViewState extends State<SegurancaLegalView> {
             child: Column(
               children: [
                 Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      'assets/images/seguranca-legal/${index + 1}.jpeg',
-                      fit: BoxFit.fill,
+                  child: Semantics(
+                    label: 'Imagem ${index + 1} do segurança legal',
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        'assets/images/seguranca-legal/${index + 1}.jpeg',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
@@ -108,7 +111,7 @@ class _SegurancaLegalViewState extends State<SegurancaLegalView> {
                       visible: stateView.currentIndex > 0 && stateView.currentIndex < 5,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 10),
-                        child: CsElevatedButton.secondary(
+                        child: CsTextButton(
                           label: 'Voltar',
                           onPressed: () {
                             int page = stateView.currentIndex - 1;

@@ -17,14 +17,17 @@ class CsHeaderText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return AutoSizeText(
-      title,
-      textAlign: TextAlign.center,
-      maxLines: maxLines,
-      style: TextStyle(
-        fontSize: fontSize,
-        color: theme.colorScheme.onPrimary,
-        fontWeight: FontWeight.bold,
+    return Semantics(
+      label: 'Título: $title',
+      child: AutoSizeText(
+        title,
+        textAlign: TextAlign.center,
+        maxLines: maxLines,
+        style: TextStyle(
+          fontSize: fontSize,
+          color: theme.colorScheme.onPrimary,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }

@@ -32,14 +32,17 @@ class _LivrosDetalhesViewState extends State<LivrosDetalhesView> {
           const SizedBox(height: 20),
           CsHeaderText(title: widget.book.titulo, maxLines: 2),
           const SizedBox(height: 10),
-          SizedBox(
-            height: 300,
-            width: 200,
-            child: Image.network(
-              widget.book.urlImagem,
+          Semantics(
+            label: 'Imagem do livro ${widget.book.titulo}',
+            child: SizedBox(
               height: 300,
               width: 200,
-              fit: BoxFit.cover,
+              child: Image.network(
+                widget.book.urlImagem,
+                height: 300,
+                width: 200,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           if (!isNullOrEmpty(widget.book.descricao)) ...[
