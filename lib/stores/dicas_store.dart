@@ -1,7 +1,7 @@
 import '../config/assets/assets_path.dart';
 import '../models/dicas_model.dart';
 
-class DicasStores {
+class DicasStore {
   static final List<DicaModel> eficienciaEnergetica = [
     DicaModel(
       title: 'Quero Consumir Menos Energia',

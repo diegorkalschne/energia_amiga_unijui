@@ -80,13 +80,13 @@ class _DicasModulosViewState extends State<DicasModulosView> {
               CardHome(
                 label: 'Eficiência Energética - Dicas',
                 icon: AssetsPath.ICON_RAIO,
-                onTap: () => navigation(LocalRoutes.SHOW_DICAS, 'Eficiência Energética - Dicas', DicasStores.eficienciaEnergetica),
+                onTap: () => navigation(LocalRoutes.SHOW_DICAS, 'Eficiência Energética - Dicas', DicasStore.eficienciaEnergetica),
               ),
               const SizedBox(height: 30),
               CardHome(
                 label: 'Evite Acidentes - Dicas',
                 icon: AssetsPath.ICON_RAIO,
-                onTap: () => navigation(LocalRoutes.SHOW_DICAS, 'Evite Acidentes - Dicas', DicasStores.acidentes),
+                onTap: () => navigation(LocalRoutes.SHOW_DICAS, 'Evite Acidentes - Dicas', DicasStore.acidentes),
               ),
             ],
           ),
