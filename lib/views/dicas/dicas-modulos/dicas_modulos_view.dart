@@ -44,6 +44,7 @@ class _DicasModulosViewState extends State<DicasModulosView> {
                 const CsHeaderText(title: 'Ajuda'),
                 const CsContentText(
                   text: 'Nesta seção do aplicativo, você encontra dicas de eficiência energética e de como evitar acidentes elétricos.',
+                  textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10),
                 CsTextButton(

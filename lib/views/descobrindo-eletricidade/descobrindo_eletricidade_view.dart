@@ -39,6 +39,7 @@ class _DescobrindoEletricidadeViewState extends State<DescobrindoEletricidadeVie
                 const CsHeaderText(title: 'Ajuda'),
                 const CsContentText(
                   text: 'Nesta seção do aplicativo, você encontra livros que abordam o assunto da eletricidade, contendo dicas e curiosidades sobre a mesma.',
+                  textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10),
                 CsTextButton(

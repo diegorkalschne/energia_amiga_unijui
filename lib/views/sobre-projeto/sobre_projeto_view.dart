@@ -30,6 +30,7 @@ class _SobreProjetoViewState extends State<SobreProjetoView> {
                 const CsHeaderText(title: 'Ajuda'),
                 const CsContentText(
                   text: 'Nesta seção do aplicativo, você conhece um pouco mais da história do projeto da Energia Amiga.',
+                  textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10),
                 CsTextButton(

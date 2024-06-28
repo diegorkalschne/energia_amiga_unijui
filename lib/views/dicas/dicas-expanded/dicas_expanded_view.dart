@@ -113,6 +113,7 @@ class _DicasExpandedViewState extends State<DicasExpandedView> with AutomaticKee
                           );
                         },
                       ),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ],

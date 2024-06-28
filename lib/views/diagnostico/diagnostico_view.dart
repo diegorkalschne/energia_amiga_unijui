@@ -71,6 +71,7 @@ class _DiagnosticoViewState extends State<DiagnosticoView> {
                 const CsHeaderText(title: 'Ajuda'),
                 const CsContentText(
                   text: 'A ferramenta de análise de instalações elétricas ajudará você a analisar as suas instalações elétricas e dar orientações de como prosseguir em casos de alerta.',
+                  textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10),
                 CsTextButton(

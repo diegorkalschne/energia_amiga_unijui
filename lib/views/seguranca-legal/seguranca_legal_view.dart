@@ -36,6 +36,7 @@ class _SegurancaLegalViewState extends State<SegurancaLegalView> {
                 const CsHeaderText(title: 'Ajuda'),
                 const CsContentText(
                   text: 'Nesta seção do aplicativo, você encontra dicas de segurança elétricas em situações de catástrofes.',
+                  textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10),
                 CsTextButton(
@@ -91,24 +92,27 @@ class _SegurancaLegalViewState extends State<SegurancaLegalView> {
                 const SizedBox(height: 10),
                 Observer(
                   builder: (_) {
-                    return CsElevatedButton.secondary(
-                      label: stateView.currentIndex == 5 ? 'Voltar' : 'Próxima',
-                      onPressed: () {
-                        int page = stateView.currentIndex == 5 ? 4 : stateView.currentIndex + 1;
+                    return Visibility(
+                      visible: stateView.currentIndex < 5,
+                      child: CsElevatedButton.secondary(
+                        label: 'Próxima',
+                        onPressed: () {
+                          int page = stateView.currentIndex == 5 ? 4 : stateView.currentIndex + 1;
 
-                        pageController.animateToPage(
-                          page,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.linearToEaseOut,
-                        );
-                      },
+                          pageController.animateToPage(
+                            page,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.linearToEaseOut,
+                          );
+                        },
+                      ),
                     );
                   },
                 ),
                 Observer(
                   builder: (_) {
                     return Visibility(
-                      visible: stateView.currentIndex > 0 && stateView.currentIndex < 5,
+                      visible: stateView.currentIndex > 0,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: CsTextButton(

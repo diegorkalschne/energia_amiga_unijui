@@ -34,6 +34,7 @@ class _SobreViewState extends State<SobreView> {
                       '- Guilherme Izidro Leal;\n'
                       '- Matheus Rafalski;\n'
                       '- Rafaela Mombach Londero.\n',
+                  textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10),
                 CsTextButton(
